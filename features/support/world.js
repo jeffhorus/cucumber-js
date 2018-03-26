@@ -25,7 +25,7 @@ class World {
 
     if (this.spawn) {
       result = await new Promise(resolve => {
-        execFile(args[0], args.slice(1), { cwd }, (error, stdout, stderr) => {
+        execFile(args[0], args.slice(1), { cwd, maxBuffer: Infinity }, (error, stdout, stderr) => {
           resolve({ error, stdout, stderr })
         })
       })
